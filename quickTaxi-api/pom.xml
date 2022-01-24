@@ -16,6 +16,7 @@
     <modules>
         <module>verification-code-api</module>
         <module>sms-api</module>
+        <module>user-api</module>
     </modules>
 
     <properties>
