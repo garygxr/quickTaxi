@@ -1,0 +1,43 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    name: quicktaxi-gateway
+
+
+  cloud:
+    loadbalancer:
+      #禁用ribbon 使用loadbalancer
+      ribbon:
+        enabled: false
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      routes:
+        - id: sms
+          uri: lb://quickTaxi-sms
+          predicates:
+            - Path=/sms/**
+          filters:
+            - StripPrefix=1
+
+        - id: verificationCode
+          uri: lb://quickTaxi-verificationCode
+          predicates:
+            - Path=/verification/**
+          filters:
+            - StripPrefix=1
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7100/eureka/
+
+
+

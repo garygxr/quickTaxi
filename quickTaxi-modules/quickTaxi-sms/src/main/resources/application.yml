@@ -1,0 +1,11 @@
+server:
+  port: 8002
+
+
+spring:
+  application:
+    name: quickTaxi-sms
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7100/eureka/
