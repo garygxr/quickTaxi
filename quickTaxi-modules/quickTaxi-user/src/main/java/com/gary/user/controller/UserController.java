@@ -3,6 +3,9 @@ package com.gary.user.controller;
 
 import com.gary.common.core.constant.HttpStatus;
 import com.gary.common.core.dto.AjaxResult;
+import com.gary.common.security.annotion.Logical;
+import com.gary.common.security.annotion.RequiresPermissions;
+import com.gary.common.security.annotion.RequiresRoles;
 import com.gary.common.security.model.AuthUser;
 import com.gary.common.security.service.TokenService;
 import com.gary.common.security.util.SecurityUtil;
@@ -22,9 +25,29 @@ public class UserController implements UserApi {
     @Autowired
     TokenService tokenService;
 
+
     @Override
-    public AjaxResult getUserById(String id) {
-        return AjaxResult.success("用户");
+    @RequiresRoles({"admin","user"})
+    public AjaxResult roleAnd() {
+        return AjaxResult.success("admin角色和user角色");
+    }
+
+    @Override
+    @RequiresRoles(value = {"admin","user"},logical = Logical.OR)
+    public AjaxResult roleOr() {
+        return AjaxResult.success("admin角色或user角色");
+    }
+
+    @Override
+    @RequiresPermissions(value = {"user:select","user:list"},logical = Logical.AND)
+    public AjaxResult permAnd() {
+        return AjaxResult.success("admin角色或user角色");
+    }
+
+    @Override
+    @RequiresPermissions(value = {"user:select","user:list"},logical = Logical.OR)
+    public AjaxResult permOr() {
+        return AjaxResult.success("admin角色或user角色");
     }
 
     @Override

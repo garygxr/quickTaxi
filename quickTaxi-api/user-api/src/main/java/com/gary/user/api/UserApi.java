@@ -6,8 +6,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/user")
 public interface UserApi {
-    @GetMapping("/{id}")
-    AjaxResult getUserById(@PathVariable("id")String id);
+    @GetMapping("/roleAnd")
+    AjaxResult roleAnd();
+
+    @GetMapping("/roleOr")
+    AjaxResult roleOr();
+
+    @GetMapping("/permAnd")
+    AjaxResult permAnd();
+
+    @GetMapping("/permOr")
+    AjaxResult permOr();
 
     @PostMapping("/login")
     AjaxResult login(@RequestBody LoginUser loginUser);

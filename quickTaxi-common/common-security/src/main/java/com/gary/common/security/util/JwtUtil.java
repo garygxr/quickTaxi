@@ -9,6 +9,12 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.util.Map;
 
+/**
+ * @Classname JwtUtil
+ * @Description jwt工具
+ * @Date 2022/1/25 17:03
+ * @Auth gary
+ */
 public class JwtUtil {
 
     public static String secret = TokenConstants.SECRET;

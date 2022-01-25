@@ -23,9 +23,12 @@ public class UserServiceImpl implements UserService {
 
         Set<String> roles = new HashSet<>();
         roles.add("admin");
+        roles.add("user");
         authUser.setRoles(roles);
 
         HashSet<String> permissions = new HashSet<>();
+        permissions.add("user:list");
+        permissions.add("user:select");
         authUser.setPermissions(permissions);
 
         return authUser;

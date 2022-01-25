@@ -11,7 +11,7 @@ import java.util.List;
  * @Date 2022/1/25 11:59
  * @Auth gary
  */
-public class TaxiStringUtils {
+public class TaxiStringUtil {
     public static AntPathMatcher pathMatcher = new AntPathMatcher();
 
     public static boolean matches(String url, List<String> whites) {

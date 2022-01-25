@@ -5,7 +5,7 @@ import com.gary.common.core.constant.HttpStatus;
 import com.gary.common.core.util.ConvertUtil;
 import com.gary.common.core.util.IpUtil;
 import com.gary.common.core.util.ServletUtil;
-import com.gary.common.core.util.TaxiStringUtils;
+import com.gary.common.core.util.TaxiStringUtil;
 import com.gary.common.security.constant.SecurityConstants;
 import com.gary.common.security.constant.TokenConstants;
 import com.gary.common.security.util.JwtUtil;
@@ -41,7 +41,7 @@ public class AuthFileter implements GlobalFilter, Ordered {
 
         String url = request.getURI().getPath();
         // 如果是请求白名单url 放行
-        if (TaxiStringUtils.matches(url, ignoreWhiteProperties.getWhites())) {
+        if (TaxiStringUtil.matches(url, ignoreWhiteProperties.getWhites())) {
             return chain.filter(exchange);
         }
 
