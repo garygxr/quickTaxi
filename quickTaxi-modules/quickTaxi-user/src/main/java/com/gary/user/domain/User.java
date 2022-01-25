@@ -1,6 +1,6 @@
 package com.gary.user.domain;
 
-import com.gary.util.SecurityUtil;
+import com.gary.common.security.util.SecurityUtil;
 import lombok.Data;
 
 

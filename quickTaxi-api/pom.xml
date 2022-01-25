@@ -27,7 +27,7 @@
     <dependencies>
         <dependency>
             <groupId>com.gary</groupId>
-            <artifactId>quickTaxi-common</artifactId>
+            <artifactId>common-core</artifactId>
         </dependency>
 
         <dependency>
@@ -41,7 +41,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.gary</groupId>
-                <artifactId>quickTaxi-common</artifactId>
+                <artifactId>common-core</artifactId>
                 <version>1.0</version>
             </dependency>
         </dependencies>

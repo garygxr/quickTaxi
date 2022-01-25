@@ -1,17 +1,15 @@
 package com.gary.user.controller;
 
 
-import com.gary.constant.HttpStatus;
-import com.gary.dto.AjaxResult;
-import com.gary.model.AuthUser;
+import com.gary.common.core.constant.HttpStatus;
+import com.gary.common.core.dto.AjaxResult;
+import com.gary.common.security.model.AuthUser;
+import com.gary.common.security.service.TokenService;
+import com.gary.common.security.util.SecurityUtil;
 import com.gary.user.api.UserApi;
-
 import com.gary.user.dto.request.LoginUser;
 import com.gary.user.service.UserService;
-import com.gary.util.SecurityUtil;
-import com.gary.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -20,6 +18,9 @@ import java.util.Map;
 public class UserController implements UserApi {
     @Autowired
     UserService userService;
+
+    @Autowired
+    TokenService tokenService;
 
     @Override
     public AjaxResult getUserById(String id) {
@@ -34,7 +35,7 @@ public class UserController implements UserApi {
         String password = loginUser.getPassword();
         boolean pass = SecurityUtil.matchesPassword(password, orignPassword);
         if (pass){
-            Map<String, Object> token = TokenUtil.createToken(authUser);
+            Map<String, Object> token = tokenService.createToken(authUser);
             return AjaxResult.success("登陆成功",token);
         }else {
             return AjaxResult.error(HttpStatus.UNAUTHORIZED,"登陆失败");

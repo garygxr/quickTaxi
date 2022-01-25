@@ -1,7 +1,7 @@
 package com.gary.verificationcode.controller;
 
 
-import com.gary.dto.AjaxResult;
+import com.gary.common.core.dto.AjaxResult;
 import com.gary.verificationcode.api.VerificationCodeApi;
 import com.gary.verificationcode.service.VerifyCodeService;
 import org.springframework.beans.factory.annotation.Autowired;

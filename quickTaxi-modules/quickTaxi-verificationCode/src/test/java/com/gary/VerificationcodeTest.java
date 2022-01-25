@@ -1,10 +1,7 @@
 package com.gary;
 
 
-import com.gary.VerificationCodeApplication;
-
-
-import com.gary.constant.HttpStatus;
+import com.gary.common.core.constant.HttpStatus;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +16,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
-import javax.servlet.http.HttpServletResponse;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 

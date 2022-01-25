@@ -1,11 +1,15 @@
 package com.gary.gateway.fileter;
 
 
-import com.gary.constant.HttpStatus;
-import com.gary.constant.SecurityConstants;
-import com.gary.constant.TokenConstants;
+import com.gary.common.core.constant.HttpStatus;
+import com.gary.common.core.util.ConvertUtil;
+import com.gary.common.core.util.IpUtil;
+import com.gary.common.core.util.ServletUtil;
+import com.gary.common.core.util.TaxiStringUtils;
+import com.gary.common.security.constant.SecurityConstants;
+import com.gary.common.security.constant.TokenConstants;
+import com.gary.common.security.util.JwtUtil;
 import com.gary.gateway.config.IgnoreWhiteProperties;
-import com.gary.util.*;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,14 +71,9 @@ public class AuthFileter implements GlobalFilter, Ordered {
         // 设置用户信息到请求头
         String userId = JwtUtil.getValue(claims, SecurityConstants.DETAILS_USER_ID);
         String username = JwtUtil.getValue(claims, SecurityConstants.DETAILS_USERNAME);
-        String permissions = JwtUtil.getValue(claims, SecurityConstants.PERMISSIONS);
-        String roles = JwtUtil.getValue(claims, SecurityConstants.ROLES);
 
         addHeader(mutate,SecurityConstants.DETAILS_USER_ID,userId);
         addHeader(mutate,SecurityConstants.DETAILS_USERNAME,username);
-        addHeader(mutate,SecurityConstants.PERMISSIONS,permissions);
-        addHeader(mutate,SecurityConstants.ROLES,roles);
-
 
         return chain.filter(exchange.mutate().request(mutate.build()).build());
     }
@@ -96,15 +95,15 @@ public class AuthFileter implements GlobalFilter, Ordered {
      * 添加请求头
      * @return
      * @param mutate
-     * @param detailsUserId
-     * @param userId
+     * @param key
+     * @param value
      */
-    private void addHeader(ServerHttpRequest.Builder mutate, String detailsUserId, String userId){
-
+    private void addHeader(ServerHttpRequest.Builder mutate, String key, String value){
+        mutate.header(key,value);
     }
 
     @Override
     public int getOrder() {
-        return 3;
+        return 0;
     }
 }

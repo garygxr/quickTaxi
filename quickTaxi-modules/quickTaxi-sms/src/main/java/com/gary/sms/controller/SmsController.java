@@ -1,7 +1,7 @@
 package com.gary.sms.controller;
 
 
-import com.gary.dto.AjaxResult;
+import com.gary.common.core.dto.AjaxResult;
 import com.gary.sms.api.SmsApi;
 import com.gary.sms.service.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;

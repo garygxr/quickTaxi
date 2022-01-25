@@ -1,6 +1,6 @@
 package com.gary.user.api;
 
-import com.gary.dto.AjaxResult;
+import com.gary.common.core.dto.AjaxResult;
 import com.gary.user.dto.request.LoginUser;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
 package com.gary.user.service;
 
-import com.gary.model.AuthUser;
+import com.gary.common.security.model.AuthUser;
 
 public interface UserService {
     /**

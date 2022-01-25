@@ -1,9 +1,8 @@
 package com.gary.user.service.impl;
 
-import com.gary.model.AuthUser;
+import com.gary.common.security.model.AuthUser;
 import com.gary.user.service.UserService;
-import com.gary.util.SecurityUtil;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.gary.common.security.util.SecurityUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
