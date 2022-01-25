@@ -1,67 +1,49 @@
 package com.gary.util;
 
-import java.util.Date;
+import com.gary.constant.TokenConstants;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
+import java.util.Map;
 
 public class JwtUtil {
 
-    /**
-     * 盐
-     */
-    private static String key = "ads_a2f#f*)23m0cf21_cv";
-    /**
-     * 超时时间
-     */
-    private long ttl=24*60*60*1000;
-
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public long getTtl() {
-        return ttl;
-    }
-
-    public void setTtl(long ttl) {
-        this.ttl = ttl;
-    }
+    public static String secret = TokenConstants.SECRET;
 
     /**
-     * 生成JWT
+     * 从数据声明生成令牌
      *
-     * @param id
-     * @param subject
-     * @param roles
-     * @return
+     * @param claims 数据声明
+     * @return 令牌
      */
-    public String createJWT(String id, String subject, String roles) {
-        long nowMillis = System.currentTimeMillis();
-        Date now = new Date(nowMillis);
-        JwtBuilder jwt = Jwts.builder().setId(id)
-                .setSubject(subject)
-                .setIssuedAt(now)
-                .signWith(SignatureAlgorithm.HS256, key)
-                .claim("roles", roles);
-        if (ttl > 0) {
-            jwt.setExpiration(new Date(nowMillis + ttl));
-        }
-        return jwt.compact();
+    public static String createToken(Map<String, Object> claims)
+    {
+        String token = Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS256, secret).compact();
+        return token;
     }
 
     /**
-     * 解析JWT
+     * 从令牌中获取数据声明
      *
-     * @param jwtStr
-     * @return
+     * @param token 令牌
+     * @return 数据声明
      */
-    public Claims parseJWT(String jwtStr) {
-        return Jwts.parser()
-                .setSigningKey(key)
-                .parseClaimsJws(jwtStr)
-                .getBody();
+    public static Claims parseToken(String token)
+    {
+        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+    }
+
+
+    /**
+     * 根据身份信息获取键值
+     *
+     * @param claims 身份信息
+     * @param key 键
+     * @return 值
+     */
+    public static String getValue(Claims claims, String key)
+    {
+        return ConvertUtil.str(claims.get(key),"");
     }
 }
