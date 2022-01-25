@@ -1,5 +1,5 @@
 # quickTaxi
-> 快车项目 基于spring-boot,spring-cloud netflix组件
+> 阿甘快车 基于spring-boot,spring-cloud netflix组件
 
 &nbsp;
 ### eurekaServer *eurekaServer服务*

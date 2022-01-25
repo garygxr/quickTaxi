@@ -14,10 +14,6 @@ spring:
         enabled: false
 
     gateway:
-      discovery:
-        locator:
-          enabled: true
-
       routes:
         - id: sms
           uri: lb://quickTaxi-sms
@@ -33,11 +29,25 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: user
+          uri: lb://quickTaxi-user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7100/eureka/
+
+
+security:
+  ignore:
+    whites:
+      - /user/login
+      - /verify-code/generate/**
 
 
 

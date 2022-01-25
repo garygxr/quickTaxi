@@ -1,5 +1,6 @@
 package com.gary.util;
 
+import com.gary.constant.Constants;
 import com.gary.constant.TokenConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -44,6 +45,6 @@ public class JwtUtil {
      */
     public static String getValue(Claims claims, String key)
     {
-        return ConvertUtil.str(claims.get(key),"");
+        return ConvertUtil.str(claims.get(key), Constants.UTF8);
     }
 }

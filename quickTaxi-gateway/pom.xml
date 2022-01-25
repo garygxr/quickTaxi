@@ -27,6 +27,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.gary</groupId>
+            <artifactId>quickTaxi-common</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 </project>
