@@ -35,17 +35,17 @@ spring:
             - Path=/user/**
           filters:
             - StripPrefix=1
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
 
   redis:
     port: 6379
     host: localhost
 
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:7100/eureka/
-    registry-fetch-interval-seconds: 5
 
 
 

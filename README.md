@@ -1,9 +1,9 @@
 # quickTaxi
-> 阿甘快车 基于spring-boot,spring-cloud netflix组件
+> 阿甘快车 基于spring-boot,spring-cloud ~~netflix组件(废弃)~~ 替换成alibaba
 
 &nbsp;
-### eurekaServer *eurekaServer服务*
->需要提前开启eurekaServer服务才可运行其他服务模块
+### ~~eurekaServer *eurekaServer服务*~~
+>~~需要提前开启eurekaServer服务才可运行其他服务模块~~
 &nbsp;
 ### api *接口和网络传输协议*
 >api为服务接口
@@ -34,7 +34,9 @@
     - [x] 网关拦截
     - [x] 接口权限控制
     - [ ] 数据隔离
-- [ ] 更换为spring-cloud-alibaba 组件
+- [x] 更换为spring-cloud-alibaba 组件
+  - [x] sentinel
+  - [x] nacos
 - [ ] swagger配置
 - [ ] 订单模块
 - [ ] 支付模块

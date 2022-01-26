@@ -5,7 +5,9 @@ server:
 spring:
   application:
     name: quickTaxi-sms
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:7100/eureka/
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
