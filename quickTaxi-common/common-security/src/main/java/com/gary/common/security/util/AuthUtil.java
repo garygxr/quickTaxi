@@ -2,10 +2,10 @@ package com.gary.common.security.util;
 
 import com.gary.common.core.exception.auth.NotLoginException;
 import com.gary.common.core.util.ServletUtil;
-import com.gary.common.security.annotion.RequiresPermissions;
-import com.gary.common.security.annotion.RequiresRoles;
+import com.gary.common.security.annotation.RequiresPermissions;
+import com.gary.common.security.annotation.RequiresRoles;
 import com.gary.common.security.auth.AuthLogic;
-import com.gary.common.security.constant.SecurityConstants;
+import com.gary.common.core.constant.SecurityConstants;
 
 /**
  * @Classname AuthUtil

@@ -2,14 +2,15 @@ package com.gary.common.security.util;
 
 import com.gary.common.core.util.ServletUtil;
 import com.gary.common.security.auth.AuthLogic;
-import com.gary.common.security.constant.SecurityConstants;
-import com.gary.common.security.constant.TokenConstants;
+import com.gary.common.core.constant.SecurityConstants;
+import com.gary.common.core.constant.TokenConstants;
 import com.gary.common.security.context.SecurityContextHolder;
 import com.gary.common.security.model.AuthUser;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Set;
 
 /**
  * @Classname SecurityUtil
@@ -87,6 +88,16 @@ public class SecurityUtil {
      */
     public static AuthUser getLoginUser()
     {
-        return SecurityContextHolder.get(SecurityConstants.LOGIN_USER, AuthUser.class);
+        String username = SecurityContextHolder.get(SecurityConstants.DETAILS_USERNAME, String.class);
+        String uid = SecurityContextHolder.get(SecurityConstants.DETAILS_USER_ID, String.class);
+        Set permissions = SecurityContextHolder.get(SecurityConstants.PERMISSIONS, Set.class);
+        Set roles = SecurityContextHolder.get(SecurityConstants.ROLES, Set.class);
+
+        AuthUser authUser = new AuthUser();
+        authUser.setUid(uid);
+        authUser.setUsername(username);
+        authUser.setPermissions(permissions);
+        authUser.setRoles(roles);
+        return authUser;
     }
 }

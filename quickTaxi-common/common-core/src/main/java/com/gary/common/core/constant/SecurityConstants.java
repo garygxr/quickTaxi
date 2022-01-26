@@ -1,4 +1,4 @@
-package com.gary.common.security.constant;
+package com.gary.common.core.constant;
 
 public class SecurityConstants {
     /**
@@ -50,10 +50,5 @@ public class SecurityConstants {
      * 用户标识
      */
     public static final String USER_KEY = "user_key";
-
-    /**
-     * 登录用户
-     */
-    public static final String LOGIN_USER = "login_user";
 }
 

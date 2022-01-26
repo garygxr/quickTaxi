@@ -1,4 +1,4 @@
-package com.gary.common.security.annotion;
+package com.gary.common.security.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,22 +6,22 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 权限认证：必须具有指定权限才能进入该方法
+ * 角色认证：必须具有指定角色标识才能进入该方法
  * 
- * @author ruoyi
- *
+ * @author gary
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE })
-public @interface RequiresPermissions
+public @interface RequiresRoles
 {
     /**
-     * 需要校验的权限码
+     * 需要校验的角色标识
      */
     String[] value() default {};
 
     /**
-     * 验证模式：AND | OR，默认AND
+     * 验证逻辑：AND | OR，默认AND
      */
     Logical logical() default Logical.AND;
+
 }

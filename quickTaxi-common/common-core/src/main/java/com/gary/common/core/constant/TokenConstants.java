@@ -1,4 +1,4 @@
-package com.gary.common.security.constant;
+package com.gary.common.core.constant;
 
 public class TokenConstants {
     /**

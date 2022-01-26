@@ -18,6 +18,7 @@ public class UserServiceImpl implements UserService {
          * 省略查数据库
          */
         AuthUser authUser = new AuthUser();
+        authUser.setUid("asd3xd");
         authUser.setUsername(usernaem);
         authUser.setPassword(SecurityUtil.encryptPassword("123"));
 

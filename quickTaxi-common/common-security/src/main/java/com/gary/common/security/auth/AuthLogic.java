@@ -4,10 +4,10 @@ package com.gary.common.security.auth;
 import com.gary.common.core.exception.auth.NotPermissionException;
 import com.gary.common.core.exception.auth.NotRoleException;
 import com.gary.common.core.util.SpringUtil;
-import com.gary.common.security.annotion.Logical;
-import com.gary.common.security.annotion.RequiresLogin;
-import com.gary.common.security.annotion.RequiresPermissions;
-import com.gary.common.security.annotion.RequiresRoles;
+import com.gary.common.security.annotation.Logical;
+import com.gary.common.security.annotation.RequiresLogin;
+import com.gary.common.security.annotation.RequiresPermissions;
+import com.gary.common.security.annotation.RequiresRoles;
 import com.gary.common.security.model.AuthUser;
 import com.gary.common.security.service.TokenService;
 import com.gary.common.security.util.SecurityUtil;
@@ -21,7 +21,7 @@ import java.util.Set;
 /**
  * Token 权限验证，逻辑实现类
  * 
- * @author ruoyi
+ * @author gary
  */
 public class AuthLogic
 {

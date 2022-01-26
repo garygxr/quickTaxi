@@ -3,7 +3,7 @@ package com.gary.common.core.exception.auth;
 /**
  * 未能通过的登录认证异常
  * 
- * @author ruoyi
+ * @author gary
  */
 public class NotLoginException extends RuntimeException
 {

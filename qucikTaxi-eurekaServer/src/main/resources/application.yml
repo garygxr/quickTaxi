@@ -13,5 +13,7 @@ eureka:
     fetch-registry: false
   server:
     enable-self-preservation: false
+    # 关闭 read 缓存 直接从write 缓存中获取 便于开发
+    use-read-only-response-cache: false
   instance:
     hostname: eureka-server

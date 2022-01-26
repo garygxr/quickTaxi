@@ -1,9 +1,9 @@
-package com.gary.common.security.annotion;
+package com.gary.common.security.annotation;
 
 /**
  * 权限注解的验证模式
  * 
- * @author ruoyi
+ * @author gary
  *
  */
 public enum Logical

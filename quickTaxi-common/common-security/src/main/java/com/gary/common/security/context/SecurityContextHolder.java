@@ -2,7 +2,7 @@ package com.gary.common.security.context;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.gary.common.core.util.ConvertUtil;
-import com.gary.common.security.constant.SecurityConstants;
+import com.gary.common.core.constant.SecurityConstants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;

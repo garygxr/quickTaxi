@@ -1,8 +1,8 @@
 package com.gary.common.security.aspect;
 
-import com.gary.common.security.annotion.RequiresLogin;
-import com.gary.common.security.annotion.RequiresPermissions;
-import com.gary.common.security.annotion.RequiresRoles;
+import com.gary.common.security.annotation.RequiresLogin;
+import com.gary.common.security.annotation.RequiresPermissions;
+import com.gary.common.security.annotation.RequiresRoles;
 import com.gary.common.security.util.AuthUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -25,11 +25,11 @@ public class AuthAspect {
     /**
      * 定义AOP签名
      */
-    public static final String POINTCUT_SIGN = " @annotation(com.ruoyi.common.security.annotation.RequiresLogin) || "
-            + "@annotation(com.ruoyi.common.security.annotation.RequiresPermissions) || "
-            + "@annotation(com.ruoyi.common.security.annotation.RequiresRoles)";
+    public static final String POINTCUT_SIGN = " @annotation(com.gary.common.security.annotation.RequiresLogin) || "
+            + "@annotation(com.gary.common.security.annotation.RequiresPermissions) || "
+            + "@annotation(com.gary.common.security.annotation.RequiresRoles)";
 
-    @Pointcut(value = POINTCUT_SIGN)
+    @Pointcut(POINTCUT_SIGN)
     public void pointcut() {
 
     }

@@ -1,8 +1,7 @@
-package com.gary.common.security.util;
+package com.gary.common.core.util;
 
 import com.gary.common.core.constant.Constants;
-import com.gary.common.security.constant.TokenConstants;
-import com.gary.common.core.util.ConvertUtil;
+import com.gary.common.core.constant.TokenConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

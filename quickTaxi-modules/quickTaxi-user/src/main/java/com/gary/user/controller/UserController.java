@@ -3,9 +3,9 @@ package com.gary.user.controller;
 
 import com.gary.common.core.constant.HttpStatus;
 import com.gary.common.core.dto.AjaxResult;
-import com.gary.common.security.annotion.Logical;
-import com.gary.common.security.annotion.RequiresPermissions;
-import com.gary.common.security.annotion.RequiresRoles;
+import com.gary.common.security.annotation.Logical;
+import com.gary.common.security.annotation.RequiresPermissions;
+import com.gary.common.security.annotation.RequiresRoles;
 import com.gary.common.security.model.AuthUser;
 import com.gary.common.security.service.TokenService;
 import com.gary.common.security.util.SecurityUtil;
@@ -41,13 +41,13 @@ public class UserController implements UserApi {
     @Override
     @RequiresPermissions(value = {"user:select","user:list"},logical = Logical.AND)
     public AjaxResult permAnd() {
-        return AjaxResult.success("admin角色或user角色");
+        return AjaxResult.success("user:select 和 user:list 权限");
     }
 
     @Override
     @RequiresPermissions(value = {"user:select","user:list"},logical = Logical.OR)
     public AjaxResult permOr() {
-        return AjaxResult.success("admin角色或user角色");
+        return AjaxResult.success("user:select 或 user:list 权限");
     }
 
     @Override

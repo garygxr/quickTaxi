@@ -4,9 +4,9 @@ import com.gary.common.core.util.IpUtil;
 import com.gary.common.core.util.ServletUtil;
 import com.gary.common.redis.constant.RedisKey;
 import com.gary.common.redis.service.RedisService;
-import com.gary.common.security.constant.SecurityConstants;
+import com.gary.common.core.constant.SecurityConstants;
 import com.gary.common.security.model.AuthUser;
-import com.gary.common.security.util.JwtUtil;
+import com.gary.common.core.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
