@@ -1,5 +1,7 @@
 package com.gary.user.service.impl;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.gary.common.security.model.AuthUser;
 import com.gary.user.service.UserService;
 import com.gary.common.security.util.SecurityUtil;
@@ -13,6 +15,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    @SentinelResource(value = "loadUserByUserName",blockHandler = "fallBack")
     public AuthUser loadUserByUserName(String usernaem) {
         /**
          * 省略查数据库
@@ -33,5 +36,17 @@ public class UserServiceImpl implements UserService {
         authUser.setPermissions(permissions);
 
         return authUser;
+    }
+
+
+    @Override
+    public Boolean checkUserPassword(String currntPassword,String orignPassword){
+        return SecurityUtil.matchesPassword(currntPassword, orignPassword);
+    }
+
+
+    public AuthUser fallBack(String usernaem,BlockException exception){
+        System.out.println(exception);
+        return new AuthUser();
     }
 }

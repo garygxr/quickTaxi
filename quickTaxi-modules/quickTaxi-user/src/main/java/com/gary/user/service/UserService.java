@@ -10,4 +10,5 @@ public interface UserService {
      */
     AuthUser loadUserByUserName(String usernaem);
 
+    Boolean checkUserPassword(String currntPassword, String orignPassword);
 }

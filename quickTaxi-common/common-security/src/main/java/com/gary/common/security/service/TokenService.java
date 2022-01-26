@@ -26,7 +26,7 @@ public class TokenService {
     /**
      * 创建令牌
      */
-    public Map<String, Object> createToken(AuthUser authUser) {
+    public String createToken(AuthUser authUser) {
         String userId = authUser.getUid();
         String userName = authUser.getUsername();
         authUser.setIpaddr(IpUtil.getIpAddr(ServletUtil.getRequest()));
@@ -45,9 +45,9 @@ public class TokenService {
 
         redisService.setCacheObject(RedisKey.getAuthUserKey(userId), authUser, REDISTTL, TimeUnit.MILLISECONDS);
 
-        rspMap.put("access_token", JwtUtil.createToken(claimsMap));
+        String token = JwtUtil.createToken(claimsMap);
 
-        return rspMap;
+        return token;
     }
 
     public void delLoginUser(String token) {

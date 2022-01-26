@@ -2,7 +2,11 @@ package com.gary.user.api;
 
 import com.gary.common.core.dto.AjaxResult;
 import com.gary.user.dto.request.LoginUser;
-import org.springframework.web.bind.annotation.*;
+import com.gary.user.dto.response.LoginUserVo;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/user")
 public interface UserApi {
@@ -19,5 +23,5 @@ public interface UserApi {
     AjaxResult permOr();
 
     @PostMapping("/login")
-    AjaxResult login(@RequestBody LoginUser loginUser);
+    AjaxResult<LoginUserVo> login(@RequestBody LoginUser loginUser);
 }

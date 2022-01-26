@@ -8,14 +8,12 @@ import com.gary.common.security.annotation.RequiresPermissions;
 import com.gary.common.security.annotation.RequiresRoles;
 import com.gary.common.security.model.AuthUser;
 import com.gary.common.security.service.TokenService;
-import com.gary.common.security.util.SecurityUtil;
 import com.gary.user.api.UserApi;
 import com.gary.user.dto.request.LoginUser;
+import com.gary.user.dto.response.LoginUserVo;
 import com.gary.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 public class UserController implements UserApi {
@@ -50,18 +48,23 @@ public class UserController implements UserApi {
         return AjaxResult.success("user:select 或 user:list 权限");
     }
 
+
     @Override
-    public AjaxResult login(LoginUser loginUser) {
+    public AjaxResult<LoginUserVo> login(LoginUser loginUser) {
+        String password = loginUser.getPassword();
+        if (password==null){
+            return AjaxResult.error("密码不能为空");
+        }
         //从数据库查询user
         AuthUser authUser = userService.loadUserByUserName(loginUser.getUsername());
         String orignPassword = authUser.getPassword();
-        String password = loginUser.getPassword();
-        boolean pass = SecurityUtil.matchesPassword(password, orignPassword);
+        Boolean pass = userService.checkUserPassword(password, orignPassword);
         if (pass){
-            Map<String, Object> token = tokenService.createToken(authUser);
-            return AjaxResult.success("登陆成功",token);
+            String token = tokenService.createToken(authUser);
+            LoginUserVo loginUserVo = new LoginUserVo(token);
+            return AjaxResult.success("登陆成功", loginUserVo);
         }else {
-            return AjaxResult.error(HttpStatus.UNAUTHORIZED,"登陆失败");
+            return AjaxResult.error(HttpStatus.UNAUTHORIZED, "登陆失败");
         }
     }
 }
