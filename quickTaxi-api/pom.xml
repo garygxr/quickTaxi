@@ -34,6 +34,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.gary</groupId>
+            <artifactId>common-swagger</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 
