@@ -14,14 +14,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer
 {
     /** 不需要拦截地址 */
-    public static final String[] excludeUrls = { "/user/login","/verify-code/generate/**", "/user/logout", "/user/refresh" };
+    public static final String[] excludeUserUrls = {"/user/login","/verify-code/generate/**", "/user/logout", "/user/refresh" };
+    public static final String[] excludeSwaggerUrls = {"/swagger-ui/**","/swagger-resources/**","/webjars/**","/v2/**","/swagger-ui.html/**"};
+
 
     @Override
     public void addInterceptors(InterceptorRegistry registry)
     {
         registry.addInterceptor(getHeaderInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns(excludeUrls)
+                .excludePathPatterns(excludeUserUrls)
+                .excludePathPatterns(excludeSwaggerUrls)
                 .order(-10);
     }
 

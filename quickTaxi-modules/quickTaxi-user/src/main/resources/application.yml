@@ -23,9 +23,14 @@ spring:
       # 服务发现
       discovery:
         server-addr: localhost:8848
+        group: quickTaxi
+
+
       # 配置中心
       config:
         server-addr: localhost:8848
+        group: quickTaxi
+
 
 server:
   port: 8003

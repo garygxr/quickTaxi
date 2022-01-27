@@ -35,11 +35,19 @@ spring:
             - Path=/user/**
           filters:
             - StripPrefix=1
+    # nacos
     nacos:
+      # 服务发现
       discovery:
         server-addr: localhost:8848
+        group: quickTaxi
+
+
+      # 配置中心
       config:
         server-addr: localhost:8848
+        group: quickTaxi
+
 
   redis:
     port: 6379
@@ -52,8 +60,12 @@ spring:
 security:
   ignore:
     whites:
-      - /user/login
-      - /verify-code/generate/**
-
+      - /**/user/login
+      - /**/verify-code/generate/**
+      - /**/swagger-ui.html
+      - /**/swagger-resources/**
+      - /**/swagger-resources
+      - /**/v2/api-docs
+      - /**/swagger-resources/configuration/ui
 
 

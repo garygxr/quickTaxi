@@ -28,18 +28,25 @@
  - **user** *基础用户服务*
  
 
-## 待完成任务
+## 任务
+- [x] 服务网关
 - [ ] 单点登陆
     - [x] jwt
     - [x] 网关拦截
     - [x] 接口权限控制
     - [ ] 数据隔离
-- [x] 更换为spring-cloud-alibaba 组件
-  - [x] sentinel
+- [x] 配置中心
+  -[x] nacos
+- [x] 注册中心 
   - [x] nacos
-- [ ] swagger配置
-- [ ] 订单模块
-- [ ] 支付模块
+- [x] 熔断降级
+  - [x] sentinel
+- [x] 系统接口
+  - [x] swagger
+  - [x] knife4j 
+  - http://localhost/doc.html
+- [ ] 分布式事务  
+- [ ] 分布式日志
 - [ ] 链路追踪
 
 
