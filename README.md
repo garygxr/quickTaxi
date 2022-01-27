@@ -44,7 +44,7 @@
 - [x] 系统接口
   - [x] swagger
   - [x] knife4j 
-  - http://localhost/doc.html
+  * http://localhost/doc.html
 - [ ] 分布式事务  
 - [ ] 分布式日志
 - [ ] 链路追踪

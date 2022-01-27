@@ -33,17 +33,17 @@ public class SwaggerProperties
     /**
      * 标题
      **/
-    private String title = "";
+    private String title = "阿甘快车";
 
     /**
      * 描述
      **/
-    private String description = "";
+    private String description = "快车app";
 
     /**
      * 版本
      **/
-    private String version = "";
+    private String version = "1.0";
 
     /**
      * 许可证
@@ -63,7 +63,7 @@ public class SwaggerProperties
     /**
      * host信息
      **/
-    private String host = "";
+    private String host = "http://114.215.178.13:8090";
 
     /**
      * 联系人信息
@@ -210,15 +210,15 @@ public class SwaggerProperties
         /**
          * 联系人
          **/
-        private String name = "";
+        private String name = "甘新锐";
         /**
          * 联系人url
          **/
-        private String url = "";
+        private String url = "https://github.com/garygxr";
         /**
          * 联系人email
          **/
-        private String email = "";
+        private String email = "809448064@qq.com";
 
         public String getName()
         {
