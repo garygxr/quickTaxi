@@ -1,5 +1,6 @@
 package com.gary.user.dto.response;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginUserVo {
-
+    @ApiModelProperty(value = "token 将该token放入请求头的Authorization")
     private String access_token;
 }

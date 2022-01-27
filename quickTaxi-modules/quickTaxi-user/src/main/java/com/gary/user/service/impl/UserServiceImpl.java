@@ -26,12 +26,11 @@ public class UserServiceImpl implements UserService {
         authUser.setPassword(SecurityUtil.encryptPassword("123"));
 
         Set<String> roles = new HashSet<>();
-        roles.add("admin");
-        roles.add("user");
+        roles.add("*");
         authUser.setRoles(roles);
 
         HashSet<String> permissions = new HashSet<>();
-        permissions.add("user:list");
+        permissions.add("*");
         authUser.setPermissions(permissions);
 
         return authUser;

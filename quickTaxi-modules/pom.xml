@@ -15,6 +15,7 @@
         <module>quickTaxi-sms</module>
         <module>quickTaxi-verificationCode</module>
         <module>quickTaxi-user</module>
+        <module>quickTaxi-order</module>
     </modules>
 
     <groupId>com.gary</groupId>

@@ -15,12 +15,15 @@ spring:
 
     gateway:
       routes:
+        - id: order
+          uri: lb://quickTaxi-order
+          predicates:
+            - Path=/order/**
+
         - id: sms
           uri: lb://quickTaxi-sms
           predicates:
             - Path=/sms/**
-          filters:
-            - StripPrefix=1
 
         - id: verificationCode
           uri: lb://quickTaxi-verificationCode
@@ -33,8 +36,7 @@ spring:
           uri: lb://quickTaxi-user
           predicates:
             - Path=/user/**
-          filters:
-            - StripPrefix=1
+
     # nacos
     nacos:
       # 服务发现

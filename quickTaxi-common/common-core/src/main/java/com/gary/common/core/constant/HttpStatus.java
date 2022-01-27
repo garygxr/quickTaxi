@@ -121,6 +121,11 @@ public class HttpStatus {
     public static final int Expectation_Failed = 417;
 
     /**
+     * 服务器限流降级
+     */
+    public static final int FLOW_LIMITING = 429;
+
+    /**
      * 系统内部错误
      */
     public static final int ERROR = 500;
