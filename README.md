@@ -24,9 +24,12 @@
 > 基于loadbalancer的网关
 &nbsp;
 ### modules *服务模块*
- - **sms** *sms服务 负责邮件,短信,电话发送*
- - **user** *基础用户服务*
- - **order** *订单服务*
+> - **sms** *sms服务 负责邮件,短信,电话发送*
+> - **user** *基础用户服务*
+> - **order** *订单服务*
+
+### docker *部署脚本*
+>执行 sh deploy.sh  根据提示操作
  
 
 ## 任务
@@ -46,9 +49,11 @@
   - [x] swagger
   - [x] knife4j 
   * http://localhost/doc.html
-- [ ] 分布式事务  
+- [x] 分布式事务  
+  - [x] seata 
+    * TA模式
 - [ ] 分布式日志
 - [ ] 链路追踪
-- [ ] 发布脚本
+- [x] 发布脚本
 
 

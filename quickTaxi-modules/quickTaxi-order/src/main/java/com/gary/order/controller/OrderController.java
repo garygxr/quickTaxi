@@ -30,4 +30,9 @@ public class OrderController implements OrderApi {
             return AjaxResult.error("下单失败");
         }
     }
+
+    @Override
+    public AjaxResult test(){
+        return AjaxResult.success();
+    }
 }

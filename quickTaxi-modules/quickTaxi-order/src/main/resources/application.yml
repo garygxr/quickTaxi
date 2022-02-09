@@ -7,6 +7,53 @@ spring:
     host: localhost
     port: 6379
 
+  datasource:
+    druid:
+      stat-view-servlet:
+        enabled: true
+        loginUsername: admin
+        loginPassword: 123456
+    dynamic:
+      druid:
+        initial-size: 5
+        min-idle: 5
+        maxActive: 20
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        filters: stat,wall,slf4j
+        connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/quick_taxi
+          username: root
+          password: ganxinrui123
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        order:
+          url: jdbc:mysql://localhost:3306/seata_order
+          username: root
+          password: ganxinrui123
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        account:
+          url: jdbc:mysql://localhost:3306/seata_account
+          username: root
+          password: ganxinrui123
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        product:
+          url: jdbc:mysql://localhost:3306/seata_product
+          username: root
+          password: ganxinrui123
+          driver-class-name: com.mysql.cj.jdbc.Driver
+      seata: true
+
   cloud:
     # sentinel dashboard配置
     sentinel:
@@ -30,6 +77,10 @@ spring:
       config:
         server-addr: localhost:8848
         group: quickTaxi
+    loadbalancer:
+      ribbon:
+        enabled: false
+
 
 
 server:
@@ -38,11 +89,30 @@ server:
     context-path: /order
 
 
-# eureka(废弃)
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:7100/eureka/
+# seata配置
+seata:
+  enabled: true
+  # Seata 应用编号，默认为 ${spring.application.name}
+  application-id: ${spring.application.name}
+  # Seata 事务组编号，用于 TC 集群名
+  tx-service-group: ${spring.application.name}-group
+  # 关闭自动代理
+  enable-auto-data-source-proxy: false
+  # 服务配置项
+  service:
+    # 虚拟组和分组的映射
+    vgroup-mapping:
+      quick-order-group: default
+    # 分组和 Seata 服务的映射
+    grouplist:
+      default: 127.0.0.1:8091
+  config:
+    type: file
+  registry:
+    type: file
+    nacos:
+      cluster: default
+
 
 
 
